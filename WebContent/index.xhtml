@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core"	
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		<meta charset="UTF-8"/>
+		<title>Login básico</title>
+		<link rel="stylesheet" type="text/css" href="estilo.css"/>
+	</h:head>
+	<h:body>
+	
+		<h1>Login básico</h1>
+		
+		<h:form>
+			<div id="formulario">
+				<h:messages/>
+				
+				<div id="div-usuario" class="div-item-formulario">
+					<p:outputLabel for="usuario" value="Usuário"/>
+					<p:inputMask id="usuario" value="#{loginMBean.login.cpf}" required="true" requiredMessage="Informe o usuário" mask="999.999.999-99"/>
+				</div>
+				
+				<div id="div-senha" class="div-item-formulario">
+					<p:outputLabel for="senha" value="Senha"/> 
+					<p:password id="senha" value="#{loginMBean.login.senha}" required="true" requiredMessage="Informe a senha"/>
+				</div>
+				
+				<div id="div-botao" class="div-item-formulario">
+					<p:commandButton value="Entrar" action="#{loginMBean.logar}" ajax="false"/>
+				</div>
+			</div>
+		</h:form>		
+	</h:body>
+</html>
